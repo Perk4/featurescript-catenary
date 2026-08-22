@@ -35,7 +35,6 @@ export function sampleCatenary(args: SampleCatenaryArgs): Vec3[] {
   const points: Vec3[] = [];
   for (let i = 0; i < n; i++) {
     const t = i / (n - 1);
-    // (1-t)A + tB is exact at the ends; A + t(B-A) is not.
     const base = lerp(args.start, args.end, t);
     points.push(add(base, scale(hang, args.sag * profile(t, k))));
   }
@@ -59,7 +58,6 @@ function coshSagRatio(k: number): number {
 
 function solveK(sagRatio: number): number {
   if (sagRatio < EPS_RATIO) {
-    // cosh differences cancel here; 4t(1-t) is the analytic k->0 limit
     return 0;
   }
   let hi = 1;
