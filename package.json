@@ -1,0 +1,8 @@
+{
+  "name": "featurescript-catenary",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-strip-types --test catenary.test.ts"
+  }
+}
